@@ -24,15 +24,34 @@ const ItemCardStyles = styled.div`
   &:hover {
     transform: translateY(-5px);
   }
-  @media (max-width: 767px) {
-    padding-right: 15px;
-    padding-bottom: 3rem;
-
+  @media (max-width: 1025px) {
+    margin-bottom: 10px;
+    padding-bottom: 2rem;
+    width: 250px;
+    height: 330px;
     & img {
-      width: 150px;
-      height: 80%;
+      width: 100%;
+      height: 90%;
+      margin-bottom: 10px;
     }
     & a {
+      padding: 0.5rem;
+      font-size: 25px;
+    }
+  }
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+    padding-bottom: 2rem;
+    width: 150px;
+    height: 200px;
+    & img {
+      width: 150px;
+      height: 190px;
+      margin-bottom: 5px;
+    }
+    & a {
+      padding: 0.5rem;
+      font-size: 18px;
       text-decoration: none;
     }
   }

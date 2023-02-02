@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import itemCardsData from "../ItemCards/ItemCardsData.json";
 
+//needs backend
 const getRandomObject = (array: string | any[]) => {
   const randomObject = array[Math.floor(Math.random() * array.length)];
   return randomObject;

@@ -4,10 +4,12 @@ import { useLocation, useParams } from "react-router-dom";
 import "./FilmDetailsStyles.css";
 
 const FilmDetails = () => {
+  //fetches filmId parameter from url e.g. films/1
   const { filmId: filmIdString } = useParams();
-  const filmId = Number(filmIdString);
+  const filmId = Number(filmIdString) - 1;
   return (
     <>
+      {/*FilmDetail component uses css grid to order the film image, title, and details*/}
       <div className="grid-container">
         <div className="product-img">
           <img src={itemCardsData.itemCards[filmId].itemImage} />

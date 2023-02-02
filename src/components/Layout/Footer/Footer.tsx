@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import FooterStyles from "./FooterStyles";
-import Logo from "../../Logo/Logo";
 
+//The footer component displays the sitemap and is displayed across the bottom of all pages apart from login & signup
 const Footer = () => {
   return (
     <FooterStyles>

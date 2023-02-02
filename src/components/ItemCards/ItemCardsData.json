@@ -2,6 +2,7 @@
   "itemCards": [
     {
       "id": "1",
+      "itemCategory": "Christmas",
       "itemImage": "/assets/images/film-posters/violent-night.png",
       "itemTitle": "Violent Night",
       "itemLink": "/",
@@ -9,6 +10,7 @@
     },
     {
       "id": "2",
+      "itemCategory": "Comic",
       "itemImage": "/assets/images/film-posters/endgame.png",
       "itemTitle": "Endgame",
       "itemLink": "/",
@@ -16,6 +18,7 @@
     },
     {
       "id": "3",
+      "itemCategory": "SiFi",
       "itemImage": "/assets/images/film-posters/avatar.png",
       "itemTitle": "Avatar",
       "itemLink": "/",
@@ -23,6 +26,7 @@
     },
     {
       "id": "4",
+      "itemCategory": "Action",
       "itemImage": "/assets/images/film-posters/bullet-train.png",
       "itemTitle": "Bullet Train",
       "itemLink": "/",

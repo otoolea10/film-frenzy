@@ -9,5 +9,11 @@ const SkinnyBannerStyles = styled.div`
   h2 {
     transform: translateY(-52px);
   }
+  @media (max-width: 767px) {
+    height: 90px;
+    h2 {
+      font-size: 40px;
+    }
+  }
 `;
 export default SkinnyBannerStyles;

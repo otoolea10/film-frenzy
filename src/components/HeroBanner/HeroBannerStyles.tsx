@@ -26,8 +26,20 @@ const HeroBannerStyles = styled.div`
     height: 350px;
     object-fit: cover;
   }
+  @media (max-width: 1025px) {
+    height: 250px;
+    width: 100vw;
+    & h1 {
+      font-size: 24px;
+      margin-top: -120px;
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
   @media (max-width: 767px) {
-    margin-top: 15%;
     height: 150px;
     width: 100%;
     & h1 {

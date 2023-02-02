@@ -1,15 +1,21 @@
 import React from "react";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import ItemCards from "../../components/ItemCards/ItemCards";
-import glassOnion from "../../../public/assets/images/banners/glass-onion-banner.png";
 import { FilmsStyles } from "./FilmsStyles";
 
-const Home = () => {
+//Films component is used to display the Films page
+const Films = () => {
   return (
+    //custom styling is implemented using styled components
     <FilmsStyles>
-      <HeroBanner heroBannerImage={glassOnion} heroBannerHeading="Products" />
+      {/*  HeroBanner used to display page title with an image in the background*/}
+      <HeroBanner
+        heroBannerImage={"assets/images/banners/lens-banner.jpg"}
+        heroBannerHeading="Films"
+      />
+      {/*  ItemCards used to display all films available*/}
       <ItemCards />
     </FilmsStyles>
   );
 };
-export default Home;
+export default Films;

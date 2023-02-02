@@ -1,6 +1,7 @@
 import React from "react";
 import HeroBannerStyles from "./HeroBannerStyles";
-import { NavButton } from "../Button/Button";
+
+//typed properties of the component
 interface HeroBannerProps {
   heroBannerHeading?: string;
   heroBannerText?: string;
@@ -10,9 +11,10 @@ interface HeroBannerProps {
 const HeroBanner = ({
   heroBannerHeading,
   heroBannerText,
-  heroBannerImage
+  heroBannerImage,
 }: HeroBannerProps) => {
   return (
+    //HeroBanner displays a large banner at the top of a page and accepts an image, heading, and text
     <HeroBannerStyles>
       <img src={heroBannerImage} alt="Hero" />
       <h1>{heroBannerHeading}</h1>

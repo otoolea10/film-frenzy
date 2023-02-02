@@ -34,5 +34,22 @@ const NavBarStyles = styled.div`
     margin-left: 9%;
     cursor: pointer;
   }
+    @media (max-width: 1025px) {
+    width: 100vw;
+    
+  }
+  @media(maz-width: 1025px){
+  width: 100vw;
+ }
+   @media (max-width: 767px) {
+   height: 60px;
+   .desktop-nav{
+   display: none;
+   }
+    & .header-logo {
+   display: none;
+  }
+  & .mobil
+  }
 `;
 export default NavBarStyles;
