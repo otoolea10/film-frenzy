@@ -1,0 +1,27 @@
+{
+  "subCards": [
+    {
+      "id": "1",
+      "planTitle": "Basic",
+      "monthlyPrice": "£9.99",
+      "yearlyPrice": "£99",
+      "devices": "1 x mobile"
+    },
+
+    {
+      "id": "2",
+      "planTitle": "Standard",
+      "monthlyPrice": "£12.99",
+      "yearlyPrice": "£110",
+      "devices": "2 x mobile"
+    },
+
+    {
+      "id": "3",
+      "planTitle": "Premium",
+      "monthlyPrice": "£15.99",
+      "yearlyPrice": "£150",
+      "devices": "3 x mobile"
+    }
+  ]
+}
