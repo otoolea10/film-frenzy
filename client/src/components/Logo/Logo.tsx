@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import LogoImage from "../../../public/assets/logo.svg";
+import LogoImage from "../../../public/assets/icons/logo.svg";
 
 //Typed properties
 interface LogoProps {

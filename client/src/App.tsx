@@ -9,6 +9,9 @@ import Login from "./pages/Login/Login";
 import { connect } from "react-redux";
 import { RootState } from "./store/store";
 import Subscribe from "./pages/Subscribe/Subscribe";
+import OfflineBanner from "./components/OfflineBanner/OfflineBanner";
+// @ts-ignore
+import { Offline } from "react-detect-offline";
 
 export interface AuthenticationProps {
   isAuthenticated: boolean;
@@ -17,6 +20,9 @@ export interface AuthenticationProps {
 const App = ({ isAuthenticated }: AuthenticationProps) => {
   return (
     <BrowserRouter>
+      <Offline>
+        <OfflineBanner />
+      </Offline>
       {/*If the user is not authenticated then the app will display the login page*/}
       {/*{!isAuthenticated && (*/}
       {/*  <Routes>*/}
