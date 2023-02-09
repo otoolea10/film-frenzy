@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
+const { GenerateSW } = require("workbox-webpack-plugin");
 
 module.exports = {
   entry: "./src/index",
@@ -9,14 +10,14 @@ module.exports = {
   devServer: {
     static: {
       directory: path.join(__dirname, "dist/"),
-      watch: true
+      watch: true,
     },
     hot: true,
     port: 3000,
-    historyApiFallback: true
+    historyApiFallback: true,
   },
   output: {
-    publicPath: "auto"
+    publicPath: "auto",
   },
   module: {
     rules: [
@@ -24,30 +25,30 @@ module.exports = {
         test: /bundle\.tsx$/,
         loader: "bundle-loader",
         options: {
-          lazy: true
-        }
+          lazy: true,
+        },
       },
       {
         test: /\.tsx?$/,
         use: "ts-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/i,
         use: [
           {
-            loader: "style-loader"
+            loader: "style-loader",
           },
-          "css-loader"
-        ]
+          "css-loader",
+        ],
       },
       {
         test: /\.(png|jpg|jpeg|gif|woff|woff2)$/,
         use: [
           {
-            loader: require.resolve("url-loader")
-          }
-        ]
+            loader: require.resolve("url-loader"),
+          },
+        ],
       },
       {
         test: /\.svg$/,
@@ -55,28 +56,33 @@ module.exports = {
           {
             loader: "svg-url-loader",
             options: {
-              limit: 10000
-            }
-          }
-        ]
-      }
-    ]
+              limit: 10000,
+            },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js"]
+    extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
-      favicon: "./public/favicon.ico"
+      favicon: "./public/favicon.ico",
     }),
     new CopyPlugin({
       patterns: [
         {
           from: path.resolve(process.cwd(), "public/assets/images"),
-          to: "assets/images"
-        }
-      ]
-    })
-  ]
+          to: "assets/images",
+        },
+      ],
+    }),
+    new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+      maximumFileSizeToCacheInBytes: 200000000,
+    }),
+  ],
 };
