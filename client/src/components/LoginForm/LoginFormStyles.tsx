@@ -19,43 +19,23 @@ const LoginFormStyles = styled.div`
   }
   label {
     font-size: 20px;
-    font-weight: bold;
+  }
+  h2 {
+    margin-bottom: 3rem;
   }
   input {
     margin: 1rem;
     width: 60%;
-    height: 30px;
-  }
-  
-  .form-input-label {
-    position: relative;
-    color: #27323f;
-    pointer-events: none;
-    transform: translateY(1rem);
-    transition: 150ms cubic-bezier(0.4,0,0.2,1);
-    padding-bottom: 10px;
+    height: 45px;
+    border-radius: 10px;
   }
 
-  #header {
-    padding-bottom: 25px;
-    font-size: 23px;
-    margin-left: -5%;
-  }
-  
-  input {
-    border: solid 1.5px #9e9e9e;
-    border-radius: 7px;
-    padding: 1rem;
-    font-size: 1rem;
-    color: #27323f;
-    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
-  }
-  
-  input[type='password'] {
+  input[type="password"] {
     letter-spacing: 0.3em;
   }
-  
-  input:focus, input:valid {
+
+  input:focus,
+  :valid {
     outline: none;
     border: 1.5px solid #46c6ea;
   }

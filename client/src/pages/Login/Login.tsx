@@ -22,7 +22,6 @@ const Login = (): JSX.Element => {
         heroBannerImage={filmBanner}
         heroBannerHeading="Welcome To Film Frenzy"
       />
-      {/* <SkinnyBanner bannerHeading="Please enter your details to login" /> */}
       <LoginForm />
     </LoginStyles>
   );
