@@ -40,14 +40,15 @@ const LoginForm = (): JSX.Element => {
     //custom styling is implemented using styled components
     <LoginFormStyles>
       <div className="login-container">
-        <label>Username</label>
+        <label className="form-input-label" id="header">Please enter your Login details below:</label>
+        <label className="form-input-label">Username</label>
         <input
           type="email"
           id="email"
           value={values.email}
           onChange={handleChange("email")}
         />
-        <label>Password</label>
+        <label className="form-input-label">Password</label>
         <input
           type="password"
           id="password"

@@ -26,6 +26,40 @@ const LoginFormStyles = styled.div`
     width: 60%;
     height: 30px;
   }
+  
+  .form-input-label {
+    position: relative;
+    color: #27323f;
+    pointer-events: none;
+    transform: translateY(1rem);
+    transition: 150ms cubic-bezier(0.4,0,0.2,1);
+    padding-bottom: 10px;
+  }
+
+  #header {
+    padding-bottom: 25px;
+    font-size: 23px;
+    margin-left: -5%;
+  }
+  
+  input {
+    border: solid 1.5px #9e9e9e;
+    border-radius: 7px;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #27323f;
+    transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+  }
+  
+  input[type='password'] {
+    letter-spacing: 0.3em;
+  }
+  
+  input:focus, input:valid {
+    outline: none;
+    border: 1.5px solid #46c6ea;
+  }
+
   @media (max-width: 767px) {
     .login-container {
       width: 55%;
