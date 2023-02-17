@@ -3,6 +3,7 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import { loginApi } from "./loginApi";
 import { filmsApi } from "./filmsApi";
 import { subscriptionApi } from "./subscriptionApi";
+import { usersApi } from "./usersApi";
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     [filmsApi.reducerPath]: filmsApi.reducer,
     [loginApi.reducerPath]: loginApi.reducer,
     [subscriptionApi.reducerPath]: subscriptionApi.reducer,
+    [usersApi.reducerPath]: usersApi.reducer,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
@@ -17,7 +19,8 @@ export const store = configureStore({
     getDefaultMiddleware()
       .concat(filmsApi.middleware)
       .concat(loginApi.middleware)
-      .concat(subscriptionApi.middleware),
+      .concat(subscriptionApi.middleware)
+      .concat(usersApi.middleware),
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

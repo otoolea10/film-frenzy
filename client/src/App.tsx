@@ -14,6 +14,7 @@ import Basket from "./pages/Basket/Basket";
 // @ts-ignore
 import { Offline } from "react-detect-offline";
 import OrderConfirmation from "./pages/OrderConfirmation/OrderConfirmation";
+import Users from "./pages/Users/Users";
 
 export interface AuthenticationProps {
   isAuthenticated: boolean;
@@ -37,14 +38,14 @@ const App = ({ isAuthenticated }: AuthenticationProps) => {
         <OfflineBanner />
       </Offline>
       {/*If the user is not authenticated then the app will display the login page*/}
-      {!isAuthenticated && (
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      )}
+      {/*{!isAuthenticated && (*/}
+      {/*  <Routes>*/}
+      {/*    <Route path="/" element={<Login />} />*/}
+      {/*    <Route path="*" element={<Navigate to="/" replace />} />*/}
+      {/*  </Routes>*/}
+      {/*)}*/}
       {/*If the user is authenticated then the app will allow the user to access the rest of the pages*/}
-      {isAuthenticated && (
+      {!isAuthenticated && (
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -53,6 +54,7 @@ const App = ({ isAuthenticated }: AuthenticationProps) => {
             <Route path="/films" element={<Films />} />
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/basket/:planId" element={<Basket />} />
+            <Route path="/users" element={<Users />} />
             <Route path="*" element={<Navigate to="/" />} />
             <Route
               path="/order-complete/:planId"
