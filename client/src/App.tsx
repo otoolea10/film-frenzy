@@ -43,7 +43,7 @@ const App = ({ isAuthenticated, isAdmin }: AuthenticationProps) => {
       {!isAuthenticated && (
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="*" element={<Navigate to="/subscribe" replace />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       )}
       {/*If the user is authenticated then the app will allow the user to access the rest of the pages*/}
@@ -56,11 +56,12 @@ const App = ({ isAuthenticated, isAdmin }: AuthenticationProps) => {
             <Route path="/films" element={<Films />} />
             <Route path="/subscribe" element={<Subscribe />} />
             <Route path="/basket/:planId" element={<Basket />} />
-            <Route path="*" element={<Navigate to="/subscribe" />} />
+            <Route path="*" element={<Navigate to="/" />} />
             <Route
               path="/order-complete/:planId"
               element={<OrderConfirmation />}
             />
+
             {isAdmin && <Route path="/users" element={<Users />} />}
           </Routes>
         </Layout>

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const UserTabelStyles = styled.div`
-  width: 70%;
+  width: 75%;
   margin: auto;
-  padding: 1rem 0;
+  padding: 2rem 0;
   table,
   th,
   td {
