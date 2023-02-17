@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FilmOfDayStyles = styled.div`
-  width: 50%;
+  width: 70%;
   height: 260px;
   margin: 1rem auto;
   border-radius: 10px;
