@@ -62,7 +62,7 @@ const App = ({ isAuthenticated, isAdmin }: AuthenticationProps) => {
               element={<OrderConfirmation />}
             />
 
-            {!isAdmin && <Route path="/users" element={<Users />} />}
+            {isAdmin && <Route path="/users" element={<Users />} />}
           </Routes>
         </Layout>
       )}

@@ -57,10 +57,8 @@ const FilmCardStyles = styled.div`
     }
   }
   @media (max-width: 767px) {
-    margin-bottom: 10px;
-    padding-bottom: 2rem;
     width: 150px;
-    height: 230px;
+    height: 200px;
     & .item-card-front img {
       width: 150px;
       height: 190px;
@@ -71,7 +69,8 @@ const FilmCardStyles = styled.div`
     }
     & .item-card-front a {
       font-size: 18px;
-      text-decoration: none;
+      text-decoration: underline;
+      margin-right: 0rem;
     }
     &:hover {
       transform: rotateY(0);
