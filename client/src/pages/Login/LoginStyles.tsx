@@ -15,7 +15,12 @@ const LoginStyles = styled.div`
     margin: 0;
     transform: translateY(20px);
   }
-
+  @media (max-width: 1025px) {
+    h1 {
+      font-size: 40px;
+      transform: translateY(-25%) translateX(-90%);
+    }
+  }
   @media (max-width: 767px) {
     img {
       margin-bottom: -1rem;
