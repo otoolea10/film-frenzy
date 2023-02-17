@@ -3,40 +3,24 @@ import styled from "styled-components";
 export const FilmDetailsStyles = styled.div`
   .grid-container {
     display: grid;
+    grid-template-columns: auto;
+    width: 50%;
+    margin: 1rem auto;
   }
-  .product-img img {
-    margin-top: 2rem;
-    margin-left: -30%;
-    grid-column: 1;
-    grid-row: 1 / span 2;
-    width: 400px;
-    height: 350px;
-    border-radius: 10px;
+  .film-img img {
+    height: 500px;
+    width: 100%;
+    margin: auto;
     object-fit: contain;
   }
 
-  .product-title {
+  .film-title {
+    text-align: center;
     font-size: 26px;
-    grid-column: 2;
-    grid-row: 1;
     color: #313941;
   }
-  .product-description {
+  .film-description {
     font-size: 25px;
-    padding-top: 100px;
-    grid-column: 2;
-    grid-row: 1;
     color: #313941;
-  }
-  .banner-image img {
-    margin-top: -200px;
-    width: 100%;
-  }
-  .tech-specs img {
-    display: block;
-    margin: 2rem auto 2rem auto;
-    width: 650px;
-    height: 600px;
-    object-fit: contain;
   }
 `;
