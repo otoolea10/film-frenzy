@@ -1,6 +1,10 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Subscription } from "./subscriptionApi";
 
+export interface FilmResponse {
+  documents: Array<Film>;
+}
 //Typed interfaces for film
 export interface Film {
   _id: number;
@@ -28,12 +32,15 @@ export const filmsApi = createApi({
     getAllFilms: builder.query<{ documents: Film[] }, FilmsQueries>({
       query: (queries) => `api`,
     }),
-    getFilm: builder.query<{ documents: Film }, string>({
-      query: (id) => `api/${id}`,
+    getFilmById: builder.query<FilmResponse, string>({
+      query: (id) => ({
+        url: `/api/${id}`,
+        method: "GET",
+      }),
     }),
   }),
 });
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllFilmsQuery, useGetFilmQuery } = filmsApi;
+export const { useGetAllFilmsQuery, useGetFilmByIdQuery } = filmsApi;
