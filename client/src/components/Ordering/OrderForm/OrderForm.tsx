@@ -3,23 +3,14 @@ import Button from "../../Button/Button";
 import { NavLink } from "react-router-dom";
 import OrderFormStyles from "./OrderFormStyles";
 
-export interface OrderSummaryData {
-  firstName: string;
-  lastName: string;
-  address1: string;
-  address2: string;
-  town: string;
-  postcode: string;
-}
-
 //Typed properties
 interface OrderSummaryProps {
-  onSubmit?: (orderSummary: OrderSummaryData) => void;
-  orderTotal?: number;
   id: any;
 }
 
-const OrderForm = ({ onSubmit, orderTotal = 0, id }: OrderSummaryProps) => {
+//The OrderForm component allows the user to enter their details into the basket page
+//It uses html labels and inputs to accept firstname, surname, address line 1, address line 2, town, and postcode
+const OrderForm = ({ id }: OrderSummaryProps) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [address1, setAddressOne] = useState("");
