@@ -1,7 +1,7 @@
 import React from "react";
 import HeroBanner from "../components/HeroBanner/HeroBanner";
 import SkinnyBanner from "../components/SkinnyBanner/SkinnyBanner";
-import ItemCards from "../components/ItemCards/ItemCards";
+import FilmCards from "../components/FilmCards/FilmCards";
 import glassOnion from "../../public/assets/images/banners/glass-onion-banner.png";
 import FilmOfDay from "../components/FilmOfDay/FilmOfDay";
 import { useGetAllFilmsQuery } from "../store/filmsApi";
@@ -18,7 +18,7 @@ const Home = () => {
       <SkinnyBanner bannerHeading="Top Picks" />
       {/*Displays the top pick films*/}
       {isLoading && "I am loading!"}
-      {!isLoading && !!data && <ItemCards data={data.documents} />}
+      {!isLoading && !!data && <FilmCards data={data.documents} />}
       {/*Skinny banner to introduce the film of the day*/}
       <SkinnyBanner bannerHeading="Film of the Day" />
       {/*Automated random film of the day*/}

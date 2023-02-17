@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ItemCardStyles = styled.div`
+const FilmCardStyles = styled.div`
   background-color: #27323f;
   margin-top: 3rem;
   margin-bottom: 3rem;
@@ -78,4 +78,4 @@ const ItemCardStyles = styled.div`
     }
   }
 `;
-export default ItemCardStyles;
+export default FilmCardStyles;
