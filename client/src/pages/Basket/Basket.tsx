@@ -7,10 +7,13 @@ import { useGetSubscriptionByIdQuery } from "../../store/subscriptionApi";
 import BasketStyles from "./BasketStyles";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import Theater from "../../../public/assets/images/banners/theater-banner.jpg";
-import Button from "../../components/Button/Button";
 
+//Basket page allows users to add their details to order a new subscription
+//The page displays the selected plan details, how much the user needs to pay, an input form to enter the user's details, and an order now button
 const Basket = () => {
+  //  planId is pulled from the url
   const { planId } = useParams();
+  //Using redux the single subscription data is pulled from the database
   const { isLoading, data } = useGetSubscriptionByIdQuery(planId!);
   return (
     <BasketStyles>
