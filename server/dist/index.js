@@ -29,19 +29,6 @@ myHeaders.append("Content-Type", "application/json");
 myHeaders.append("Access-Control-Request-Headers", "*");
 myHeaders.append("api-key", "2pLVyVoLai1QVk1AZwfAC1UvcueRt3mX9ha7J3SbQxIvbwmWij3WJgGqMlkd3Ix2");
 myHeaders.append("Accept", "application/json");
-// HTTP request options for fetching data from a MongoDB database for the collection films to display all.
-const raw = JSON.stringify({
-    dataSource: "Cluster0",
-    database: "Films",
-    collection: "films",
-    filter: {},
-});
-const requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow",
-};
 // HTTP request options for fetching data from a MongoDB database for the collection : customers to display all.
 const rawCustomers = JSON.stringify({
     dataSource: "Cluster0",
@@ -57,6 +44,20 @@ const requestOptionsCustomers = {
 };
 // API endpoint to retrieve data from a MongoDB database that shows all the films
 app.get("/api", (req, res) => {
+    const limit = Number(req.query.limit);
+    // HTTP request options for fetching data from a MongoDB database for the collection films to display all.
+    const raw = JSON.stringify({
+        dataSource: "Cluster0",
+        database: "Films",
+        collection: "films",
+        limit,
+    });
+    const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+    };
     (0, isomorphic_fetch_1.default)("https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find", requestOptions)
         .then((res) => res.json())
         .then((data) => {
