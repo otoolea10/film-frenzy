@@ -116,10 +116,8 @@ async function fetchData() {
       password: string;
     }) => {
       return {
-        _id: customer._id,
+        ...customer,
         name: customer.fname + " " + customer.sname,
-        email: customer.email,
-        password: customer.password,
       };
     }
   );
@@ -143,7 +141,9 @@ app.post("/login", (req: Request, res: Response) => {
     return res.status(404).send("User Not Found!");
   }
 
-  return res.status(200).json(user);
+  const { password: temp, ...userAuth } = user;
+
+  return res.status(200).json(userAuth);
 });
 
 /// This is an API endpoint for single films so each film's id has an own api link

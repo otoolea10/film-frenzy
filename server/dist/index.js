@@ -8,6 +8,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -44,6 +55,7 @@ const requestOptionsCustomers = {
 };
 // API endpoint to retrieve data from a MongoDB database that shows all the films
 app.get("/api", (req, res) => {
+    //Get limit parameter from query string
     const limit = Number(req.query.limit);
     // HTTP request options for fetching data from a MongoDB database for the collection films to display all.
     const raw = JSON.stringify({
@@ -102,12 +114,7 @@ function fetchData() {
         // and it then maps the fetched data to a new format and store it in the `customerArray` array
         const res = yield axios_1.default.get("http://localhost:8000/users");
         customerArray = res.data.documents.map((customer) => {
-            return {
-                _id: customer._id,
-                name: customer.fname + " " + customer.sname,
-                email: customer.email,
-                password: customer.password,
-            };
+            return Object.assign(Object.assign({}, customer), { name: customer.fname + " " + customer.sname });
         });
     });
 }
@@ -124,7 +131,8 @@ app.post("/login", (req, res) => {
     if (!user) {
         return res.status(404).send("User Not Found!");
     }
-    return res.status(200).json(user);
+    const { password: temp } = user, userAuth = __rest(user, ["password"]);
+    return res.status(200).json(userAuth);
 });
 /// This is an API endpoint for single films so each film's id has an own api link
 app.get("/api/:id", (req, res) => {

@@ -14,12 +14,15 @@ import Basket from "./pages/Basket/Basket";
 // @ts-ignore
 import { Offline } from "react-detect-offline";
 import OrderConfirmation from "./pages/OrderConfirmation/OrderConfirmation";
+import Users from "./pages/Users/Users";
+import { AuthResponse } from "./store/loginApi";
 
 export interface AuthenticationProps {
   isAuthenticated: boolean;
+  isAdmin: boolean;
 }
 
-const App = ({ isAuthenticated }: AuthenticationProps) => {
+const App = ({ isAuthenticated, isAdmin }: AuthenticationProps) => {
   useEffect(() => {
     // What this does is adds the authenticated parameter to local storage so that a user no longer needs to
     // login each time a different section of the site is clicked unless new window is open
@@ -45,7 +48,7 @@ const App = ({ isAuthenticated }: AuthenticationProps) => {
       )}
       {/*If the user is authenticated then the app will allow the user to access the rest of the pages*/}
       {isAuthenticated && (
-        <Layout>
+        <Layout isAdmin={isAdmin}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
@@ -58,6 +61,8 @@ const App = ({ isAuthenticated }: AuthenticationProps) => {
               path="/order-complete/:planId"
               element={<OrderConfirmation />}
             />
+
+            {isAdmin && <Route path="/users" element={<Users />} />}
           </Routes>
         </Layout>
       )}
@@ -74,6 +79,7 @@ const mapStateToProps = (state: RootState) => {
 
   return {
     isAuthenticated,
+    isAdmin: (state.auth.queries.user?.data as AuthResponse)?.level === "admin",
   };
 };
 

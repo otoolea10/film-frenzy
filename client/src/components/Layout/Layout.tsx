@@ -6,8 +6,9 @@ import SideDrawer from "./SideDrawer/SideDrawer";
 //typed properties of component
 interface LayoutProps {
   children: React.ReactNode;
+  isAdmin: boolean;
 }
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children, isAdmin }: LayoutProps) => {
   //Logic to handle when SideDrawer is closed and sets ShowSideDrawer state to false
   const [showSideDrawer, toggleSideDrawer] = useState(false);
   const closeSideDrawer = () => {
@@ -20,9 +21,13 @@ const Layout = ({ children }: LayoutProps) => {
     manually wrap each page with these components */
   return (
     <>
-      <NavBar drawerToggleClicked={toggleSideDrawerHandler} />
+      <NavBar drawerToggleClicked={toggleSideDrawerHandler} isAdmin={isAdmin} />
       {/*SideDrawer sets the open and closed properties to the appropriate logic */}
-      <SideDrawer open={showSideDrawer} closed={closeSideDrawer} />
+      <SideDrawer
+        open={showSideDrawer}
+        closed={closeSideDrawer}
+        isAdmin={isAdmin}
+      />
       <main>{children}</main>
       <Footer />
     </>

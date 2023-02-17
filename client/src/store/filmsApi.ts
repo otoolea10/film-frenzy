@@ -1,6 +1,5 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Subscription } from "./subscriptionApi";
 
 export interface FilmResponse {
   documents: Array<Film>;
