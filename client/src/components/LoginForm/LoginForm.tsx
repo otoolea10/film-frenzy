@@ -39,7 +39,7 @@ const LoginForm = (): JSX.Element => {
     <LoginFormStyles>
       <div className="login-container">
         <h2>Please enter your Login details below:</h2>
-        <label>Username</label>
+        <label>Email</label>
         <input
           type="email"
           id="email"
