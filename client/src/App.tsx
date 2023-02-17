@@ -36,7 +36,7 @@ const App = ({ isAuthenticated }: AuthenticationProps) => {
       <Offline>
         <OfflineBanner />
       </Offline>
-      If the user is not authenticated then the app will display the login page
+      {/*If the user is not authenticated then the app will display the login page*/}
       {!isAuthenticated && (
         <Routes>
           <Route path="/" element={<Login />} />
