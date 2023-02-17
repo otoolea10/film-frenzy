@@ -10,7 +10,6 @@ import SkinnyBanner from "../../components/SkinnyBanner/SkinnyBanner";
 interface LoginFormProps {
   email: string;
   password: string;
-  showPassword: boolean;
 }
 /*Login page allows the user to log into the application*/
 const LoginForm = (): JSX.Element => {
@@ -18,7 +17,6 @@ const LoginForm = (): JSX.Element => {
   const [values, setValues] = useState<LoginFormProps>({
     email: "",
     password: "",
-    showPassword: false,
   });
 
   const [triggerLogin, { isSuccess, isError }] = useLazyLoginQuery();

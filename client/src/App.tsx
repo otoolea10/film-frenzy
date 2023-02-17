@@ -10,8 +10,10 @@ import { connect } from "react-redux";
 import { RootState } from "./store/store";
 import Subscribe from "./pages/Subscribe/Subscribe";
 import OfflineBanner from "./components/OfflineBanner/OfflineBanner";
+import Basket from "./pages/Basket/Basket";
 // @ts-ignore
 import { Offline } from "react-detect-offline";
+import OrderConfirmation from "./pages/OrderConfirmation/OrderConfirmation";
 
 export interface AuthenticationProps {
   isAuthenticated: boolean;
@@ -34,7 +36,7 @@ const App = ({ isAuthenticated }: AuthenticationProps) => {
       <Offline>
         <OfflineBanner />
       </Offline>
-      {/*If the user is not authenticated then the app will display the login page*/}
+      If the user is not authenticated then the app will display the login page
       {!isAuthenticated && (
         <Routes>
           <Route path="/" element={<Login />} />
@@ -50,7 +52,12 @@ const App = ({ isAuthenticated }: AuthenticationProps) => {
             <Route path="/films/:filmId" element={<FilmDetails />} />
             <Route path="/films" element={<Films />} />
             <Route path="/subscribe" element={<Subscribe />} />
+            <Route path="/basket/:planId" element={<Basket />} />
             <Route path="*" element={<Navigate to="/" />} />
+            <Route
+              path="/order-complete/:planId"
+              element={<OrderConfirmation />}
+            />
           </Routes>
         </Layout>
       )}

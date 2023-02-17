@@ -3,13 +3,14 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 //Typed interfaces for the auth response
 export interface AuthResponse {
-  msg: string;
-  token: string;
-  user: User;
+  email: string;
+  name: string;
+  password: string;
+  _id: string;
 }
 
 export interface User {
-  id: number;
+  _id: string;
   name: string;
   email: string;
   password: string;
