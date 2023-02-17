@@ -36,15 +36,15 @@ const App = ({ isAuthenticated }: AuthenticationProps) => {
       <Offline>
         <OfflineBanner />
       </Offline>
-      If the user is not authenticated then the app will display the login page
-      {!isAuthenticated && (
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      )}
+      {/*If the user is not authenticated then the app will display the login page*/}
+      {/*{!isAuthenticated && (*/}
+      {/*  <Routes>*/}
+      {/*    <Route path="/" element={<Login />} />*/}
+      {/*    <Route path="*" element={<Navigate to="/" replace />} />*/}
+      {/*  </Routes>*/}
+      {/*)}*/}
       {/*If the user is authenticated then the app will allow the user to access the rest of the pages*/}
-      {isAuthenticated && (
+      {!isAuthenticated && (
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />

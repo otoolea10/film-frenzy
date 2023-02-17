@@ -25,6 +25,7 @@ export interface FilmsQueries {
 }
 
 // Define a service using a base URL and expected endpoints
+//requests all films from backend
 export const filmsApi = createApi({
   reducerPath: "filmsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/" }),
@@ -32,6 +33,7 @@ export const filmsApi = createApi({
     getAllFilms: builder.query<{ documents: Film[] }, FilmsQueries>({
       query: (queries) => `api`,
     }),
+    //requests a single film from the database using the film's id
     getFilmById: builder.query<FilmResponse, string>({
       query: (id) => ({
         url: `/api/${id}`,
