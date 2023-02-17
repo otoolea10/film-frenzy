@@ -1,6 +1,6 @@
 import React from "react";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
-import ItemCards from "../../components/ItemCards/ItemCards";
+import FilmCards from "../../components/FilmCards/FilmCards";
 import { FilmsStyles } from "./FilmsStyles";
 import { useGetAllFilmsQuery } from "../../store/filmsApi";
 
@@ -17,7 +17,7 @@ const Films = () => {
       />
       {/*  ItemCards used to display all films available*/}
       {isLoading && "I am loading!"}
-      {!isLoading && !!data && <ItemCards data={data.documents} />}
+      {!isLoading && !!data && <FilmCards data={data.documents} />}
     </FilmsStyles>
   );
 };

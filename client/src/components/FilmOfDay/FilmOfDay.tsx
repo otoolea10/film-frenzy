@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import itemCardsData from "../ItemCards/ItemCardsData.json";
+import itemCardsData from "./RandomFilmData.json";
 import { FilmOfDayStyles } from "./FilmOfDayStyles";
 
 const getRandomObject = (array: string | any[]) => {

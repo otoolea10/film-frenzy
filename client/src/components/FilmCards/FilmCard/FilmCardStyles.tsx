@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-const ItemCardStyles = styled.div`
+const FilmCardStyles = styled.div`
   background-color: #27323f;
   margin-top: 3rem;
   margin-bottom: 3rem;
   width: 230px;
-  height: 400px;
+  height: 370px;
   text-align: center !important;
   border-radius: 10px;
   box-shadow: 9px 13px 26px -7px rgba(0, 0, 0, 0.65);
@@ -27,8 +27,8 @@ const ItemCardStyles = styled.div`
   .item-card-front a {
     color: white;
     text-decoration: none;
-    font-size: 20px;
-    padding: 0 10px;
+    font-size: 25px;
+    margin-right: 1rem;
   }
   &:hover {
     transform: rotateY(180deg);
@@ -78,4 +78,4 @@ const ItemCardStyles = styled.div`
     }
   }
 `;
-export default ItemCardStyles;
+export default FilmCardStyles;

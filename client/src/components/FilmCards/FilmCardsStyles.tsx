@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ItemCardsStyles = styled.div`
+const FilmCardsStyles = styled.div`
   & .item-card-container {
     display: grid;
     padding-left: 4%;
@@ -20,4 +20,4 @@ const ItemCardsStyles = styled.div`
     }
   }
 `;
-export default ItemCardsStyles;
+export default FilmCardsStyles;

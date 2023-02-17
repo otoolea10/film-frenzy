@@ -22,16 +22,21 @@ export interface Film {
 export interface FilmsQueries {
   title?: string;
   genre?: string;
+  limit?: number;
 }
 
 // Define a service using a base URL and expected endpoints
 //requests all films from backend
+//Limit prop limits the number of films sent
 export const filmsApi = createApi({
   reducerPath: "filmsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/" }),
   endpoints: (builder) => ({
     getAllFilms: builder.query<{ documents: Film[] }, FilmsQueries>({
-      query: (queries) => `api`,
+      query: ({ limit }) => ({
+        url: `api${limit ? `?limit=${limit}` : ""}`,
+        method: "GET",
+      }),
     }),
     //requests a single film from the database using the film's id
     getFilmById: builder.query<FilmResponse, string>({
