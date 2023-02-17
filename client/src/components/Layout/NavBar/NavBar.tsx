@@ -7,8 +7,9 @@ import DrawerToggle from "../DrawerToggle";
 //typed properties of component
 interface NavBarProps {
   drawerToggleClicked?: () => void;
+  isAdmin: boolean;
 }
-const NavBar = ({ drawerToggleClicked }: NavBarProps) => {
+const NavBar = ({ drawerToggleClicked, isAdmin }: NavBarProps) => {
   return (
     //custom styling is implemented using styled components
     <NavBarStyles>
@@ -38,6 +39,12 @@ const NavBar = ({ drawerToggleClicked }: NavBarProps) => {
             <li>
               <NavLink to="/subscribe">Subscribe</NavLink>
             </li>
+            {/*If the user is an admin then the Users link will be displayed. If clicked it will re-direct to the Users page */}
+            {isAdmin && (
+              <li>
+                <NavLink to="/users">Users</NavLink>
+              </li>
+            )}
           </ul>
         </nav>
       </div>

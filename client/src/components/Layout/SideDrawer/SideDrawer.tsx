@@ -6,8 +6,9 @@ import SideDrawerStyles from "./SideDrawerStyles";
 interface SideDrawerProps {
   open: boolean;
   closed: () => void;
+  isAdmin: boolean;
 }
-const SideDrawer = ({ open, closed }: SideDrawerProps) => {
+const SideDrawer = ({ open, closed, isAdmin }: SideDrawerProps) => {
   return (
     //If open is set to true then store SideDrawer is open
     //Custom styling is implemented using styled components
@@ -33,6 +34,12 @@ const SideDrawer = ({ open, closed }: SideDrawerProps) => {
           <li>
             <NavLink to="/subscribe">Subscribe &gt;</NavLink>
           </li>
+          {/*If the user is an admin then the Users link will be displayed. If clicked it will re-direct to the Users page */}
+          {isAdmin && (
+            <li>
+              <NavLink to="/users">Users</NavLink>
+            </li>
+          )}
         </ul>
       </nav>
     </SideDrawerStyles>
