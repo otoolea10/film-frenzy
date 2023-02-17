@@ -23,4 +23,15 @@ export const FilmDetailsStyles = styled.div`
     font-size: 25px;
     color: #313941;
   }
+  @media (max-width: 767px) {
+    .grid-container {
+      width: 80%;
+    }
+    .film-img img {
+      height: 250px;
+    }
+    .film-title {
+      font-size: 20px;
+    }
+  }
 `;
