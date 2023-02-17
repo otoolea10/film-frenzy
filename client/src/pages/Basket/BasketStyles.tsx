@@ -9,6 +9,11 @@ const BasketStyles = styled.div`
   .sub-button {
     display: none;
   }
+  @media (max-width: 1025px) {
+    h3 {
+      width: 35%;
+    }
+  }
   @media (max-width: 767px) {
     h3 {
       width: 50%;

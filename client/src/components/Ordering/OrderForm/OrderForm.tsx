@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import Button from "../../Button/Button";
-import { NavLink } from "react-router-dom";
+import React, { FormEvent, useState } from "react";
+import Button from "../../Button/ButtonStyles";
+import { useNavigate } from "react-router-dom";
 import OrderFormStyles from "./OrderFormStyles";
 
 //Typed properties
@@ -17,7 +17,12 @@ const OrderForm = ({ id }: OrderSummaryProps) => {
   const [address2, setAddressTwo] = useState("");
   const [town, setTown] = useState("");
   const [postcode, setPostCode] = useState("");
+  const navigate = useNavigate();
 
+  const handleSubmit = (event: FormEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    navigate(`/order-complete/${id}`);
+  };
   return (
     <OrderFormStyles>
       <div className="order-container">
@@ -26,40 +31,49 @@ const OrderForm = ({ id }: OrderSummaryProps) => {
           type="text"
           id="fname"
           onChange={(e) => setFirstName(e.currentTarget.value)}
+          required
         />
         <label>Surname</label>
         <input
           type="text"
           id="sname"
           onChange={(e) => setLastName(e.currentTarget.value)}
+          required
         />
         <label>Address Line 1</label>
         <input
           type="text"
           id="address1"
           onChange={(e) => setAddressOne(e.currentTarget.value)}
+          required
         />
         <label>Address Line 2</label>
         <input
           type="text"
           id="address2"
           onChange={(e) => setAddressTwo(e.currentTarget.value)}
+          required
         />
         <label>Town</label>
         <input
           type="text"
           id="town"
           onChange={(e) => setTown(e.currentTarget.value)}
+          required
         />
         <label>Postcode</label>
         <input
           type="text"
           id="postcode"
           onChange={(e) => setPostCode(e.currentTarget.value)}
+          required
         />
-        <NavLink to={`/order-complete/${id}`}>
-          <Button className="order-button" buttonText="Order Now" />
-        </NavLink>
+        <Button
+          className="order-button"
+          children="Order Now"
+          type="submit"
+          onSubmit={handleSubmit}
+        />
       </div>
     </OrderFormStyles>
   );

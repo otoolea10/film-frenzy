@@ -39,7 +39,17 @@ const LoginFormStyles = styled.div`
     outline: none;
     border: 1.5px solid #46c6ea;
   }
+  @media (max-width: 1025px) {
+    .login-container {
+      width: 55%;
+    }
 
+    & .login-button {
+      margin: 1rem auto;
+      height: 45px;
+      width: 30%;
+    }
+  }
   @media (max-width: 767px) {
     .login-container {
       width: 55%;
