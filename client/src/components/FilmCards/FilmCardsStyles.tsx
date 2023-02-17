@@ -3,8 +3,8 @@ import styled from "styled-components";
 const FilmCardsStyles = styled.div`
   & .item-card-container {
     display: grid;
-    padding-left: 4%;
-    grid-template-columns: auto auto auto auto auto;
+    padding-left: 1%;
+    grid-template-columns: auto auto auto auto auto auto;
   }
   @media (max-width: 1025px) {
     overflow: hidden;

@@ -8,8 +8,8 @@ import { useGetAllFilmsQuery } from "../store/filmsApi";
 
 //Home component used to display Home page
 const Home = () => {
-  //  limit prop limits the number of films displayed to 5
-  const { isLoading, data } = useGetAllFilmsQuery({ title: "Home", limit: 5 });
+  //  limit prop limits the number of films displayed to 6
+  const { isLoading, data } = useGetAllFilmsQuery({ title: "Home", limit: 6 });
   return (
     <>
       {/* HeroBanner used to display featured film*/}
