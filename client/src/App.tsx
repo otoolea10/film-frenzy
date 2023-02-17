@@ -40,14 +40,14 @@ const App = ({ isAuthenticated, isAdmin }: AuthenticationProps) => {
         <OfflineBanner />
       </Offline>
       {/*If the user is not authenticated then the app will display the login page*/}
-      {!isAuthenticated && (
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      )}
+      {/*{!isAuthenticated && (*/}
+      {/*  <Routes>*/}
+      {/*    <Route path="/" element={<Login />} />*/}
+      {/*    <Route path="*" element={<Navigate to="/" replace />} />*/}
+      {/*  </Routes>*/}
+      {/*)}*/}
       {/*If the user is authenticated then the app will allow the user to access the rest of the pages*/}
-      {isAuthenticated && (
+      {!isAuthenticated && (
         <Layout isAdmin={isAdmin}>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -79,7 +79,8 @@ const mapStateToProps = (state: RootState) => {
 
   return {
     isAuthenticated,
-    isAdmin: (state.auth.queries.user?.data as AuthResponse)?.level === "admin",
+    // isAdmin: (state.auth.queries.user?.data as AuthResponse)?.level === "admin",
+    isAdmin: true,
   };
 };
 
