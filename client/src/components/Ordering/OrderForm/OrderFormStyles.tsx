@@ -37,12 +37,17 @@ const OrderFormStyles = styled.div`
 
   @media (max-width: 767px) {
     .order-container {
-      width: 55%;
+      width: 60%;
     }
 
     input {
       margin: 1rem 0;
       width: 100%;
+    }
+    button {
+      margin: 1rem auto;
+      border-radius: 10px;
+      width: 60%;
     }
   }
 `;

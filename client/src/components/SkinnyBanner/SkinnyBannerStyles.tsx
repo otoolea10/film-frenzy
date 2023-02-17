@@ -13,6 +13,7 @@ const SkinnyBannerStyles = styled.div`
     height: 90px;
     h2 {
       font-size: 30px;
+      transform: translateY(-35px);
     }
   }
 `;

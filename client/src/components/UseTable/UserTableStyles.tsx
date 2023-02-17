@@ -15,4 +15,24 @@ export const UserTabelStyles = styled.div`
     padding: 1rem;
     color: #27323f;
   }
+  @media (max-width: 1025px) {
+  overflow-x: scroll;
+  width:95%;
+     margin: 1rem;
+      td,
+  th {
+  font-size: 12px
+    padding: 0rem;
+    color: #27323f;
+  }
+  }
+  @media (max-width: 767px) {
+    overflow-x: scroll;
+      td,
+  th {
+  font-size: 20px
+    padding: 0.5rem;
+    color: #27323f;
+  }
+  }
 `;

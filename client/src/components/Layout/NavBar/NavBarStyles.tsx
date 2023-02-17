@@ -31,20 +31,24 @@ const NavBarStyles = styled.div`
     height: 62px;
     width: 62px;
     margin-top: 7px;
-    margin-left: 9%;
+    margin-left: 4%;
     cursor: pointer;
   }
 
   @media (max-width: 1025px) {
     width: 100vw;
     h1 {
-      font-size: 27px;
-      margin-left: 20%;
+      font-size: 24px;
+      margin-left: 15%;
       margin-top: -50px;
     }
     & ul {
       margin-left: 55%;
-      margin-top: -55px;
+      margin-top: -45px;
+    }
+    a {
+      padding: 5px;
+      font-size: 20px;
     }
   }
   @media (max-width: 767px) {
