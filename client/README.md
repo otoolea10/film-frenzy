@@ -1,10 +1,13 @@
-# Getting Started with Create React App
+# Getting Started with FilmFrenzy
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+### `yarn install`
+Installs yarn and all the project's required dependencies. \
+See [yarn docs](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) for more information.
 
 ### `yarn start`
 
