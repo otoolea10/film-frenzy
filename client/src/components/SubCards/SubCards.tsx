@@ -3,7 +3,7 @@ import SubCard from "./SubCard/SubCard";
 import { SubCardsStyles } from "./SubCardsStyles";
 import { useGetAllSubscriptionsQuery } from "../../store/subscriptionApi";
 
-//The SubCards components pulls data from the database via redux and maps the information to the SubCard component
+//The SubCards components pulls data from the database via redux toolkit and maps the information to the SubCard component
 const SubCards = () => {
   const { isLoading, data } = useGetAllSubscriptionsQuery("");
   return (

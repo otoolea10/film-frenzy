@@ -23,14 +23,14 @@ export interface AuthRequest {
   password?: string;
 }
 
-// Define a service using a base URL and expected endpoints
+//The Login Api handles the user authentication
 export const loginApi = createApi({
-  reducerPath: "auth",
+  reducerPath: "login",
   keepUnusedDataFor: 1800,
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
   serializeQueryArgs: ({ queryArgs }) => "user",
   endpoints: (builder) => ({
-    login: builder.query<AuthResponse, AuthRequest>({
+    login: builder.mutation<AuthResponse, AuthRequest>({
       query: (queries) => ({
         url: `/login`,
         body: queries,
@@ -40,6 +40,5 @@ export const loginApi = createApi({
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useLoginQuery, useLazyLoginQuery } = loginApi;
+// Export hooks for usage in functional components, which are auto-generated based on the defined endpoints
+export const { useLoginMutation } = loginApi;

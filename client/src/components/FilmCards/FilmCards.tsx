@@ -8,8 +8,8 @@ interface FilmCardsProps {
   data: Array<Film>;
 }
 
-/* ItemCards component maps the film data from the api to the ItemCard component.
-The key is set by the unique id assigned to the film and the url is appended with the film's id. */
+//Film Cards component maps the film data from the api to the ItemCard component.
+//The key is set by the unique id assigned to the film and the url is appended with the film's id.
 const FilmCards = ({ data }: FilmCardsProps) => {
   return (
     //custom styling is implemented using styled components

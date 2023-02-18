@@ -1,6 +1,7 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+//Typed interfaces for film response
 export interface FilmResponse {
   documents: Array<Film>;
 }
@@ -24,13 +25,13 @@ export interface FilmsQueries {
   limit?: number;
 }
 
-// Define a service using a base URL and expected endpoints
-//requests all films from backend
-//Limit prop limits the number of films sent
+//The Films api handles the films request
+//Limit prop limits the number of films sent from the database and can be set at a component level
 export const filmsApi = createApi({
   reducerPath: "filmsApi",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/" }),
   endpoints: (builder) => ({
+    //requests all the films from the database
     getAllFilms: builder.query<{ documents: Film[] }, FilmsQueries>({
       query: ({ limit }) => ({
         url: `api${limit ? `?limit=${limit}` : ""}`,
@@ -47,6 +48,5 @@ export const filmsApi = createApi({
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
+// Export hooks for usage in functional components, which are auto-generated based on the defined endpoints
 export const { useGetAllFilmsQuery, useGetFilmByIdQuery } = filmsApi;

@@ -16,8 +16,7 @@ const SideDrawer = ({ open, closed, isAdmin }: SideDrawerProps) => {
       className={`SideDrawer ${open ? "Open" : "Close"}`}
       onClick={closed}
     >
-      {/*Close SideDrawer if clicked */}
-      {/*Display close button top right */}
+      {/*Display close button top right and onClick closes the side drawer */}
       <h1 onClick={closed}>X</h1>
       {/*Create Navigational List for SideDrawer menu*/}
       <nav>

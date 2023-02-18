@@ -5,7 +5,7 @@ import { NavButton } from "../../Button/Button";
 import { Link } from "react-router-dom";
 
 const FilmCard = ({ title, imageURL, itemLink, description }: Film) => {
-  //ItemCard displays the film's image, title, and allows the user to click on it to view more details in the single view page
+  //Film Card displays the film's image, title, and allows the user to click on it to view more details in the single view page
   return (
     //custom styling is implemented using styled components
     <FilmCardStyles>

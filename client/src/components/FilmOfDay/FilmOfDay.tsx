@@ -15,7 +15,11 @@ const FilmOfDay = () => {
     //custom styling is implemented using styled components
     <FilmOfDayStyles>
       <div className="film-of-day-container">
-        <img src={randomFilm.itemImage} className="film-image" />
+        <img
+          src={randomFilm.itemImage}
+          className="film-image"
+          alt={randomFilm.itemTitle}
+        />
         <h1 className="film-title">{randomFilm.itemTitle}</h1>
         <p className="film-desc">{randomFilm.itemDescription}</p>
       </div>
