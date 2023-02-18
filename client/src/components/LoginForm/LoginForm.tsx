@@ -19,6 +19,8 @@ const LoginForm = (): JSX.Element => {
     password: "",
   });
 
+  const [error, setError] = useState<string>("");
+  
   const [triggerLogin, { isSuccess, isError }] = useLazyLoginQuery();
 
   //Handles the change of when the user enters a password and displays dots instead
@@ -31,6 +33,8 @@ const LoginForm = (): JSX.Element => {
   const handleLogin = () => {
     if (values.email && values.password) {
       triggerLogin(values);
+    } else {
+      setError("Email and password cannot be blank");
     }
   };
 
@@ -56,6 +60,7 @@ const LoginForm = (): JSX.Element => {
         {/*OnClick uses redux to validate the user's email and password.
       If both email and password are valid then the app will redirect to the home page
       */}
+        {error && <p className="error">{error}</p>}
         <Button
           className="login-button"
           buttonClick={handleLogin}
