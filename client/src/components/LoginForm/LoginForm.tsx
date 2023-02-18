@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import LoginFormStyles from "./LoginFormStyles";
 import Button from "../../components/Button/Button";
-import { useLazyLoginQuery } from "../../store/loginApi";
+import { useLoginMutation } from "../../store/loginApi";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
 import filmBanner from "../../../public/assets/images/banners/film-banner.jpg";
 import SkinnyBanner from "../../components/SkinnyBanner/SkinnyBanner";
+import { setUserDetails } from "../../store/authSlice";
+import { useDispatch } from "react-redux";
 
 //Typed properties
 interface LoginFormProps {
@@ -19,7 +21,8 @@ const LoginForm = (): JSX.Element => {
     password: "",
   });
 
-  const [triggerLogin, { isSuccess, isError }] = useLazyLoginQuery();
+  const dispatch = useDispatch();
+  const [triggerLogin, { isSuccess, isError, isLoading }] = useLoginMutation();
 
   //Handles the change of when the user enters a password and displays dots instead
   const handleChange =
@@ -27,10 +30,14 @@ const LoginForm = (): JSX.Element => {
     (event: React.ChangeEvent<HTMLInputElement>) => {
       setValues({ ...values, [prop]: event.target.value });
     };
-  //Handles the login and checks if the user's email and password are valid
-  const handleLogin = () => {
+
+  // Handles the login and checks if the user's email and password are valid
+  const handleLogin = async () => {
     if (values.email && values.password) {
-      triggerLogin(values);
+      const userDetails = await triggerLogin(values).unwrap();
+      dispatch(
+        setUserDetails({ token: userDetails._id, level: userDetails.level })
+      );
     }
   };
 
@@ -55,7 +62,7 @@ const LoginForm = (): JSX.Element => {
           value={values.password}
           required
         />
-        {/*OnClick uses redux to validate the user's email and password.
+        {/*OnClick uses redux toolkit to validate the user's email and password.
       If both email and password are valid then the app will redirect to the home page
       */}
         <Button
