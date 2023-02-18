@@ -49,6 +49,7 @@ const LoginForm = (): JSX.Element => {
           id="email"
           value={values.email}
           onChange={handleChange("email")}
+          required
         />
         <label>Password</label>
         <input
@@ -56,6 +57,7 @@ const LoginForm = (): JSX.Element => {
           id="password"
           onChange={handleChange("password")}
           value={values.password}
+          required
         />
         {/*OnClick uses redux to validate the user's email and password.
       If both email and password are valid then the app will redirect to the home page
