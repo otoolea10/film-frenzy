@@ -1,10 +1,12 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+//Types properties for users response
 export interface UsersResponse {
   documents: Array<Users>;
 }
-//Typed interfaces for film
+
+//Typed interfaces for users
 export interface Users {
   _id: number;
   fname: string;
@@ -15,19 +17,19 @@ export interface Users {
   level: string;
 }
 
-// Define a service using a base URL and expected endpoints
-//requests all users from backend
-
+//The users api handles the users requests
 export const usersApi = createApi({
   reducerPath: "users",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000/users" }),
   endpoints: (builder) => ({
+    //requests all the users from the database
     getAllUsers: builder.query<UsersResponse, string>({
       query: () => ({
         url: `/`,
         method: "GET",
       }),
     }),
+    //requests a single user from the database via its id
     getUserById: builder.query<UsersResponse, string>({
       query: (id) => ({
         url: `/${id}`,
@@ -37,6 +39,5 @@ export const usersApi = createApi({
   }),
 });
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
+// Export hooks for usage in functional components, which are auto-generated based on the defined endpoints
 export const { useGetAllUsersQuery, useGetUserByIdQuery } = usersApi;

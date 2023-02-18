@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 import ButtonStyles from "./ButtonStyles";
 import { NavLink } from "react-router-dom";
 
@@ -9,8 +9,7 @@ interface ButtonProps {
   className?: string;
 }
 /*Button accepts an onClick, title and className
-Used to across the site as a standardised button
-Uses styled component for styling*/
+It is used to across the site as a standardised button*/
 const Button = ({ buttonClick, buttonText, className }: ButtonProps) => {
   return (
     //custom styling is implemented using styled components

@@ -13,7 +13,7 @@ import Theater from "../../../public/assets/images/banners/theater-banner.jpg";
 const Basket = () => {
   //  planId is pulled from the url
   const { planId } = useParams();
-  //Using redux the single subscription data is pulled from the database
+  //Using redux toolkit the single subscription data is pulled from the database
   const { isLoading, data } = useGetSubscriptionByIdQuery(planId!);
   return (
     <BasketStyles>

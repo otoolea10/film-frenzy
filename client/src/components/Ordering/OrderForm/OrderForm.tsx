@@ -17,12 +17,15 @@ const OrderForm = ({ id }: OrderSummaryProps) => {
   const [address2, setAddressTwo] = useState("");
   const [town, setTown] = useState("");
   const [postcode, setPostCode] = useState("");
+
   const navigate = useNavigate();
 
+  //Handles page redirect without forcing page reload therefore allowing the browser to validate required fields
   const handleSubmit = (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
     navigate(`/order-complete/${id}`);
   };
+
   return (
     <OrderFormStyles>
       <div className="order-container">

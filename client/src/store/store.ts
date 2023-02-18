@@ -4,6 +4,7 @@ import { loginApi } from "./loginApi";
 import { filmsApi } from "./filmsApi";
 import { subscriptionApi } from "./subscriptionApi";
 import { usersApi } from "./usersApi";
+import authSlice from "./authSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     [loginApi.reducerPath]: loginApi.reducer,
     [subscriptionApi.reducerPath]: subscriptionApi.reducer,
     [usersApi.reducerPath]: usersApi.reducer,
+    auth: authSlice,
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
