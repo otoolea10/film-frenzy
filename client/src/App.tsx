@@ -33,7 +33,9 @@ const App = ({ isAuthenticated, isAdmin }: AuthenticationProps) => {
       localStorage.removeItem("isAuthenticated");
     });
   }, [isAuthenticated]);
-
+  const logout = () => {
+    localStorage.removeItem("isAuthenticated");
+  };
   return (
     <BrowserRouter>
       <Offline>
@@ -61,7 +63,6 @@ const App = ({ isAuthenticated, isAdmin }: AuthenticationProps) => {
               path="/order-complete/:planId"
               element={<OrderConfirmation />}
             />
-
             {isAdmin && <Route path="/users" element={<Users />} />}
           </Routes>
         </Layout>

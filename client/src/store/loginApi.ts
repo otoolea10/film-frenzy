@@ -26,6 +26,7 @@ export interface AuthRequest {
 // Define a service using a base URL and expected endpoints
 export const loginApi = createApi({
   reducerPath: "auth",
+  keepUnusedDataFor: 1800,
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
   serializeQueryArgs: ({ queryArgs }) => "user",
   endpoints: (builder) => ({
