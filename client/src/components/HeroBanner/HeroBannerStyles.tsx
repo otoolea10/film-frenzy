@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HeroBannerStyles = styled.div`
   width: 100%;
-  height: 400px;
+  height: 420px;
   box-shadow: 1px 1px 3px #373535;
   & h1 {
     width: 40%;
@@ -22,10 +22,9 @@ const HeroBannerStyles = styled.div`
   }
 
   & img {
-    width: 101%;
-    height: 400px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    margin-left: -0.2%;
   }
   @media (max-width: 1025px) {
     height: 250px;

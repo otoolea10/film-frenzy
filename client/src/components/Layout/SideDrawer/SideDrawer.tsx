@@ -1,6 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import SideDrawerStyles from "./SideDrawerStyles";
+import { useDispatch } from "react-redux";
+import { clearUserDetails } from "../../../store/authSlice";
 
 //Typed properties
 interface SideDrawerProps {
@@ -9,6 +11,16 @@ interface SideDrawerProps {
   isAdmin: boolean;
 }
 const SideDrawer = ({ open, closed, isAdmin }: SideDrawerProps) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  {
+    /* When the user clicks Logout this function will delete the isAuthenticated prop from
+local storage and uses a react-router navigate to redirect the user to the login screen */
+  }
+  const logout = () => {
+    dispatch(clearUserDetails());
+    navigate("/");
+  };
   return (
     //If open is set to true then store SideDrawer is open
     //Custom styling is implemented using styled components
@@ -39,6 +51,10 @@ const SideDrawer = ({ open, closed, isAdmin }: SideDrawerProps) => {
               <NavLink to="/users">Users</NavLink>
             </li>
           )}
+          {/*When Logout is clicked the user is redirected to the login page */}
+          <li>
+            <a onClick={logout}>Logout &gt;</a>
+          </li>
         </ul>
       </nav>
     </SideDrawerStyles>

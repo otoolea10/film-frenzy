@@ -24,7 +24,6 @@ local storage and uses a react-router navigate to redirect the user to the login
     navigate("/");
   };
 
-  
   return (
     //custom styling is implemented using styled components
     <NavBarStyles>
@@ -60,10 +59,10 @@ local storage and uses a react-router navigate to redirect the user to the login
                 <NavLink to="/users">Users</NavLink>
               </li>
             )}
-              <li>
             {/*When Logout is clicked the user is redirected to the login page */}
+            <li>
               <a onClick={logout}>Logout</a>
-              </li>
+            </li>
           </ul>
         </nav>
       </div>

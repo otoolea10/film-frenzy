@@ -12,21 +12,21 @@ const FilmCardStyles = styled.div`
   transform-style: preserve-3d;
   display: flex;
   align-items: center;
-  .item-card-front {
+  .film-card-front {
     position: absolute;
     height: 100%;
     width: 100%;
     margin: auto;
     backface-visibility: hidden;
   }
-  .item-card-front img {
+  .film-card-front img {
     height: 300px;
     width: 210px;
     border-radius: 10px;
     object-fit: cover;
     margin-bottom: 10px;
   }
-  .item-card-front a {
+  .film-card-front a {
     color: white;
     text-decoration: none;
     font-size: 25px;
@@ -36,7 +36,7 @@ const FilmCardStyles = styled.div`
     transform: rotateY(180deg);
     transition: transform 0.35s ease-in-out;
   }
-  .item-card-back {
+  .film-card-back {
     padding: 20px;
     background-color: #27323f;
     color: white;
@@ -47,15 +47,16 @@ const FilmCardStyles = styled.div`
   @media (max-width: 767px) {
     width: 150px;
     height: 250px;
-    & .item-card-front img {
+
+    & .film-card-front img {
       width: 150px;
       height: 190px;
       margin-bottom: 5px;
     }
-    .item-card-back {
+    .film-card-back {
       display: none;
     }
-    & .item-card-front a {
+    & .film-card-front a {
       font-size: 18px;
       text-decoration: underline;
     }
