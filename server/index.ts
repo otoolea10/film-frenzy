@@ -98,7 +98,7 @@ const port = process.env.PORT || 8000;
 // This starts the app and listen on the specified port
 // and logs a message to the console indicating the app is listening on the specified port
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`FilmFrenzy server listening on port ${port}`);
 });
 // Creates an empty array to store fetched customer data
 let customerArray: any[] = [];
@@ -247,8 +247,6 @@ app.get("/subscription/:id", (req, res) => {
 
 /// This is an API endpoint to delete a user
 
-
-
 app.get("/users/delete/:fname", (req, res) => {
   const deletefname = req.params.fname;
   const rawDelete = JSON.stringify({
@@ -287,8 +285,8 @@ const rawAction = JSON.stringify({
   database: "Films",
   collection: "films",
   filter: {
-    genre: "Action"
-  }
+    genre: "Action",
+  },
 });
 
 const requestOptionsAction: RequestInit = {
@@ -305,7 +303,6 @@ app.get("/genre/action", (req, res) => {
   )
     .then((res) => res.json())
     .then((data) => {
-      
       res.json(data);
     })
     .catch((error) => {
@@ -314,30 +311,33 @@ app.get("/genre/action", (req, res) => {
     });
 });
 
-app.get('/genre/animation', (req, res) => {
+app.get("/genre/animation", (req, res) => {
   const rawSingleFilm = JSON.stringify({
-    "dataSource": "Cluster0",
-    "database": "Films",
-    "collection": "films",
-    "filter": {
-      "genre": "Animation"
-    }
+    dataSource: "Cluster0",
+    database: "Films",
+    collection: "films",
+    filter: {
+      genre: "Animation",
+    },
   });
 
   const requestOptionsAnimation: RequestInit = {
-    method: 'POST',
+    method: "POST",
     headers: myHeaders,
     body: rawSingleFilm,
-    redirect: 'follow'
+    redirect: "follow",
   };
 
-  fetch("https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find", requestOptionsAnimation)
-      .then(res => res.json())
-      .then(data => {
-          res.json(data)
-      })
-      .catch(error => {
-          console.log('error', error);
-          res.status(500).send('Error: ' + error);
-      });
+  fetch(
+    "https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find",
+    requestOptionsAnimation
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((error) => {
+      console.log("error", error);
+      res.status(500).send("Error: " + error);
+    });
 });
