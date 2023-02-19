@@ -1,15 +1,30 @@
 import React from "react";
 import NavBarStyles from "./NavBarStyles";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../../Logo/Logo";
 import DrawerToggle from "../DrawerToggle";
+import { clearUserDetails } from "../../../store/authSlice";
+import { useDispatch } from "react-redux";
 
 //typed properties of component
 interface NavBarProps {
   drawerToggleClicked?: () => void;
   isAdmin: boolean;
 }
+
 const NavBar = ({ drawerToggleClicked, isAdmin }: NavBarProps) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  {
+    /* When the user clicks Logout this function will delete the isAuthenticated prop from
+local storage and uses a react-router navigate to redirect the user to the login screen */
+  }
+  const logout = () => {
+    dispatch(clearUserDetails());
+    navigate("/");
+  };
+
+  
   return (
     //custom styling is implemented using styled components
     <NavBarStyles>
@@ -45,6 +60,10 @@ const NavBar = ({ drawerToggleClicked, isAdmin }: NavBarProps) => {
                 <NavLink to="/users">Users</NavLink>
               </li>
             )}
+              <li>
+            {/*When Logout is clicked the user is redirected to the login page */}
+              <a onClick={logout}>Logout</a>
+              </li>
           </ul>
         </nav>
       </div>

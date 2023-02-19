@@ -17,7 +17,7 @@ const NavBarStyles = styled.div`
   & ul {
     list-style: none;
     display: flex;
-    margin-left: 66%;
+    margin-left: 61%;
     margin-top: -4%;
   }
   & a {
