@@ -45,8 +45,24 @@ export const filmsApi = createApi({
         method: "GET",
       }),
     }),
+    // requests films by action genre
+    getActionFilms: builder.query<FilmResponse, undefined>({
+      query: () => ({
+        url: "/genre/action",
+        method: "GET",
+      }),
+    }),
+    // requests films by animation genre
+    getAnimationFilms: builder.query<FilmResponse, undefined>({
+      query: () => ({
+        url: "/genre/animation",
+        method: "GET",
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components, which are auto-generated based on the defined endpoints
-export const { useGetAllFilmsQuery, useGetFilmByIdQuery } = filmsApi;
+export const {
+  useGetAllFilmsQuery, useGetFilmByIdQuery, useGetActionFilmsQuery, useGetAnimationFilmsQuery,
+} = filmsApi;

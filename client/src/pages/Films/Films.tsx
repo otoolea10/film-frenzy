@@ -1,6 +1,6 @@
 import React from "react";
 import HeroBanner from "../../components/HeroBanner/HeroBanner";
-import FilmCards from "../../components/FilmCards/FilmCards";
+import FilmCards from "../../components/FilmCards/CategoryFilmCards";
 import { FilmsStyles } from "./FilmsStyles";
 import { useGetAllFilmsQuery } from "../../store/filmsApi";
 

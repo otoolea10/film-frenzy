@@ -258,7 +258,7 @@ const requestOptionsAction = {
     body: rawAction,
     redirect: "follow",
 };
-app.get("/genre/actionman", (req, res) => {
+app.get("/genre/action", (req, res) => {
     (0, isomorphic_fetch_1.default)("https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find", requestOptionsAction)
         .then((res) => res.json())
         .then((data) => {

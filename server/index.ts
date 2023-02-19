@@ -298,13 +298,14 @@ const requestOptionsAction: RequestInit = {
   redirect: "follow",
 };
 
-app.get("/genre/actionman", (req, res) => {
+app.get("/genre/action", (req, res) => {
   fetch(
     "https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find",
     requestOptionsAction
   )
     .then((res) => res.json())
     .then((data) => {
+      
       res.json(data);
     })
     .catch((error) => {
