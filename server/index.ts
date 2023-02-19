@@ -89,7 +89,7 @@ app.get("/users", (req, res) => {
 // Define a GET endpoint at the default URL of the app
 app.get("/", (req: Request, res: Response) => {
   // with a dummy html message
-  res.send("<h1>Hello World From the Typescript Server!</h1>");
+  res.send("<h1>Welcome to Film Frenzy from the Typescript Server!</h1>");
 });
 
 // Set the server's port number
@@ -210,7 +210,7 @@ app.get("/subscription", (req, res) => {
     });
 });
 
-/// This is an API endpoint for the subscription plan information
+/// This is an API endpoint for the subscription plan information based on id
 app.get("/subscription/:id", (req, res) => {
   const subscriptionId = req.params.id;
   const rawSubscriptionType = JSON.stringify({
@@ -295,7 +295,7 @@ const requestOptionsAction: RequestInit = {
   body: rawAction,
   redirect: "follow",
 };
-
+//This API endpoint is used to retrieve the films only from the action genre of the films stored
 app.get("/genre/action", (req, res) => {
   fetch(
     "https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find",
@@ -310,7 +310,7 @@ app.get("/genre/action", (req, res) => {
       res.status(500).send("Error: " + error);
     });
 });
-
+// This API endpoint is used to retrieve the films only from the animation genre of the films stored
 app.get("/genre/animation", (req, res) => {
   const rawSingleFilm = JSON.stringify({
     dataSource: "Cluster0",
