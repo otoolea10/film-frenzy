@@ -16,7 +16,7 @@ const FilmCardsStyles = styled.div`
   }
   @media (max-width: 767px) {
     .film-card-container {
-      margin-left: 3%;
+      margin-left: -1%;
       grid-template-columns: auto auto;
     }
   }

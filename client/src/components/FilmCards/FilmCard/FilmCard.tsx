@@ -9,11 +9,11 @@ const FilmCard = ({ title, imageURL, itemLink, description }: Film) => {
   return (
     //custom styling is implemented using styled components
     <FilmCardStyles>
-      <div className="item-card-front">
+      <div className="film-card-front">
         <img src={imageURL} />
         <Link to={itemLink}>{title}</Link>
       </div>
-      <div className="item-card-back">
+      <div className="film-card-back">
         <p>{description}</p>
         <NavButton buttonText="View More" buttonClick={itemLink} />
       </div>
