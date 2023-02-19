@@ -14,7 +14,7 @@ const FilmCards = ({ data }: FilmCardsProps) => {
   return (
     //custom styling is implemented using styled components
     <FilmCardsStyles>
-      <div className="item-card-container">
+      <div className="film-card-container">
         {data.map((card) => (
           <FilmCard key={card._id} {...card} itemLink={`/films/${card._id}`} />
         ))}
