@@ -25,7 +25,7 @@ const FooterStyles = styled.div`
     bottom: 0;
   }
   p {
-    width: 45%;
+    width: 31%;
     margin: auto;
   }
 
@@ -56,7 +56,7 @@ const FooterStyles = styled.div`
       padding: 0 10px;
     }
     p {
-      width: 65%;
+      width: 48%;
       margin: auto;
     }
   }
