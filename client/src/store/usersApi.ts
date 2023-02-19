@@ -41,3 +41,23 @@ export const usersApi = createApi({
 
 // Export hooks for usage in functional components, which are auto-generated based on the defined endpoints
 export const { useGetAllUsersQuery, useGetUserByIdQuery } = usersApi;
+
+
+interface DeleteUserResponse {
+  success: boolean;
+}
+
+export const deleteUserApi = createApi({
+  reducerPath: "deleteUser",
+  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),
+  endpoints: (builder) => ({
+    deleteUser: builder.mutation<DeleteUserResponse, string>({
+      query: (fname) => ({
+        url: `/users/delete/${fname}`,
+        method: "GET",
+      }),
+    }),
+  }),
+});
+
+export const { useDeleteUserMutation } = deleteUserApi;

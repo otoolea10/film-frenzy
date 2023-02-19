@@ -216,58 +216,81 @@ app.get("/subscription/:id", (req, res) => {
         res.status(500).send("Error: " + error);
     });
 });
+/// This is an API endpoint to delete a user
+app.get("/users/delete/:fname", (req, res) => {
+    const deletefname = req.params.fname;
+    const rawDelete = JSON.stringify({
+        dataSource: "Cluster0",
+        database: "Films",
+        collection: "customers",
+        filter: {
+            fname: deletefname,
+        },
+    });
+    const requestOptionsDelete = {
+        method: "POST",
+        headers: myHeaders,
+        body: rawDelete,
+        redirect: "follow",
+    };
+    (0, isomorphic_fetch_1.default)("https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/deleteOne", requestOptionsDelete)
+        .then((res) => res.json())
+        .then((data) => {
+        res.json(data);
+    })
+        .catch((error) => {
+        console.log("error", error);
+        res.status(500).send("Error: " + error);
+    });
+});
 //Below is the API for categorisations
-// app.get('/api/action', (req , res) => {
-//   const filmId = req.params.id;
-//   const rawAction = JSON.stringify({
-//     "dataSource": "Cluster0",
-//     "database": "Films",
-//     "collection": "films",
-//     "filter": {
-//       "_id": {
-//         "$oid": filmId
-//       },
-//       "genre": "Action"
-//     }
-//   });
-//   const requestOptionsAction: RequestInit = {
-//     method: 'POST',
-//     headers: myHeaders,
-//     body: rawAction,
-//     redirect: 'follow'
-//   };
-//   fetch("https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find", requestOptionsAction)
-//       .then(res => res.json())
-//       .then(data => {
-//           res.json(data)
-//       })
-//       .catch(error => {
-//           console.log('error', error);
-//           res.status(500).send('Error: ' + error);
-//       });
-// });
-// app.get('/api/animation', (req, res) => {
-//   const rawSingleFilm = JSON.stringify({
-//     "dataSource": "Cluster0",
-//     "database": "Films",
-//     "collection": "films",
-//     "filter": {
-//       "genre": "Animation"
-//     }
-//   });
-//   const requestOptionsAnimation: RequestInit = {
-//     method: 'POST',
-//     headers: myHeaders,
-//     body: rawSingleFilm,
-//     redirect: 'follow'
-//   };
-//   fetch("https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find", requestOptionsAnimation)
-//       .then(res => res.json())
-//       .then(data => {
-//           res.json(data)
-//       })
-//       .catch(error => {
-//           console.log('error', error);
-//           res.status(500).send('Error: ' + error);
-//       });
-// });
+const rawAction = JSON.stringify({
+    dataSource: "Cluster0",
+    database: "Films",
+    collection: "films",
+    filter: {
+        genre: "Action"
+    }
+});
+const requestOptionsAction = {
+    method: "POST",
+    headers: myHeaders,
+    body: rawAction,
+    redirect: "follow",
+};
+app.get("/genre/action", (req, res) => {
+    (0, isomorphic_fetch_1.default)("https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find", requestOptionsAction)
+        .then((res) => res.json())
+        .then((data) => {
+        res.json(data);
+    })
+        .catch((error) => {
+        console.log("error", error);
+        res.status(500).send("Error: " + error);
+    });
+});
+app.get('/genre/animation', (req, res) => {
+    const rawSingleFilm = JSON.stringify({
+        "dataSource": "Cluster0",
+        "database": "Films",
+        "collection": "films",
+        "filter": {
+            "genre": "Animation"
+        }
+    });
+    const requestOptionsAnimation = {
+        method: 'POST',
+        headers: myHeaders,
+        body: rawSingleFilm,
+        redirect: 'follow'
+    };
+    (0, isomorphic_fetch_1.default)("https://data.mongodb-api.com/app/data-afuuc/endpoint/data/v1/action/find", requestOptionsAnimation)
+        .then(res => res.json())
+        .then(data => {
+        res.json(data);
+    })
+        .catch(error => {
+        console.log('error', error);
+        res.status(500).send('Error: ' + error);
+    });
+});
