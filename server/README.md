@@ -50,6 +50,3 @@ This API endpoint is used to retrieve the films only from the animation genre of
 
 
 
-
-## Learn More
-
