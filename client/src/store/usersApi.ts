@@ -43,10 +43,11 @@ export const usersApi = createApi({
 export const { useGetAllUsersQuery, useGetUserByIdQuery } = usersApi;
 
 
+/// This the front end api that pulls from the backend, so it can delete a user,
 interface DeleteUserResponse {
   success: boolean;
 }
-
+/// gets the backend endpoint and sets query to delet by first name
 export const deleteUserApi = createApi({
   reducerPath: "deleteUser",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8000" }),

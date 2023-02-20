@@ -12,6 +12,7 @@ import FilmCard from "../../components/FilmCards/FilmCard/FilmCard";
 
 //Films component is used to display the Films page
 const Films = () => {
+  // all of these pull the functions from films api to get the different categories
   const { isLoading, data } = useGetAllFilmsQuery({ title: "Films" });
   const { data: actionData } = useGetActionFilmsQuery(undefined);
   const { data: animationData } = useGetAnimationFilmsQuery(undefined);
@@ -26,12 +27,14 @@ const Films = () => {
         heroBannerImage={"assets/images/banners/lens-banner.jpg"}
         heroBannerHeading="Films"
       />
+      {/* Categorisation functionality pulled from the front end user api to show action films */}
       <SkinnyBanner bannerHeading="Our Favourites" />
       <div className="film-card-container">
         {actionFilms.slice(0, 6).map((card) => (
           <FilmCard key={card._id} {...card} itemLink={`/films/${card._id}`} />
         ))}
       </div>
+      {/* Categorisation functionality pulled from the front end user api to show animation films */}
       <SkinnyBanner bannerHeading="Animation" />
       <div className="film-card-container">
         {animationFilms.slice(0, 6).map((card) => (

@@ -147,6 +147,7 @@ app.get("/api/:id", (req, res) => {
             },
         },
     });
+    /// these endpoints follow the same pattern as above where a headers are set and a fetch to a mongo database command is done
     const requestOptionsSingleFilm = {
         method: "POST",
         headers: myHeaders,
@@ -171,6 +172,7 @@ app.get("/subscription", (req, res) => {
         collection: "subscriptionType",
         filter: {},
     });
+    /// these endpoints follow the same pattern as above where a headers are set and a fetch to a mongo database command is done
     const requestOptionsSubscriptionType = {
         method: "POST",
         headers: myHeaders,
@@ -200,6 +202,7 @@ app.get("/subscription/:id", (req, res) => {
             },
         },
     });
+    /// these endpoints follow the same pattern as above where a headers are set and a fetch to a mongo database command is done
     const requestOptionsSubscriptionType = {
         method: "POST",
         headers: myHeaders,
@@ -227,6 +230,7 @@ app.get("/users/delete/:fname", (req, res) => {
             fname: deletefname,
         },
     });
+    /// these endpoints follow the same pattern as above where a headers are set and a fetch to a mongo database command is done
     const requestOptionsDelete = {
         method: "POST",
         headers: myHeaders,
@@ -280,6 +284,7 @@ app.get("/genre/animation", (req, res) => {
             genre: "Animation",
         },
     });
+    /// these endpoints follow the same pattern as above where a headers are set and a fetch to a mongo database command is done
     const requestOptionsAnimation = {
         method: "POST",
         headers: myHeaders,
